@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Personal Portfolio - Version 1.2 Release Notes
 - This update focuses on enhancing the user experience with more dynamic, interactive, and visually appealing elements. Key improvements include the implementation of 3D effects, engaging animations, and consistency fixes across the site.
 
@@ -38,3 +39,6 @@ Fix: The hover state for these buttons (.project-card a:hover) has been updated 
 =======
 # Personal_porttfolio
 >>>>>>> f2a572ad066cdf5c70164d0c7aab631f60957f3e
+=======
+# per_personav1
+>>>>>>> bf29ede29affdb8be77eced11a29936461e06974
