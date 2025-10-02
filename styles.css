@@ -244,6 +244,7 @@ nav ul a:active {
 #about p {
     font-size: 1.2rem;
     margin-bottom: 10px;
+    font-weight: 500; /* Increased font weight for better readability */
 }
 
 /* Skills Section */
@@ -325,6 +326,7 @@ nav ul a:active {
     text-decoration: none;
     color: var(--secondary-color);
     font-weight: bold;
+    font-size: 1.1rem; /* Increased font size for the link */
     transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     align-self: flex-start; /* Aligns the link to the left */
     display: inline-flex;

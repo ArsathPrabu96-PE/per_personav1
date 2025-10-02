@@ -1,56 +1,36 @@
-My apologies. It looks like I've overlooked another detail. You're right, the "View Project" buttons on your project cards aren't behaving like the other 3D buttons on the page when you hover over them.
+# Personal Portfolio - Version 1.2 Release Notes
+- This update focuses on enhancing the user experience with more dynamic, interactive, and visually appealing elements. Key improvements include the implementation of 3D effects, engaging animations, and consistency fixes across the site.
 
-The issue is that the hover style for the project card links (`.project-card a:hover`) is missing the `box-shadow` update. It lifts the button with `transform`, but it doesn't adjust the shadow to create the proper 3D "lifted" illusion.
+# User Manual: New Features & Enhancements
+## 1. 3D Interactive Buttons
 
-I'll add the `box-shadow` property to the hover state and also ensure the `transition` on the base style is updated to animate all the properties smoothly.
+What it is: Navigation links, "View Project" buttons, and social media icons now feature a 3D style.
 
-Here are the changes for your `styles.css` file:
+# How it works:
+Default State: Buttons have a subtle shadow underneath, giving them a slightly raised, physical appearance (box-shadow: 0 4px 0 ...).
+On Hover: When you hover over a button, it lifts upwards (transform: translateY(-2px)) and its shadow grows larger, enhancing the 3D effect.
+On Click: When you click a button, it depresses (transform: translateY(2px)), and the shadow disappears, mimicking the action of a real-world button being pressed.
+# 2. "Shake" Animation on Hover
+What it is: Most interactive elements, including navigation buttons, skill items, project cards, and links, will now perform a subtle "shake" animation upon hover.
+How it works: This is a CSS keyframe animation (@keyframes shake) that adds a playful and engaging feel, drawing the user's attention to the element they are interacting with.
 
-```css
-/* File: c:\Users\Arshath Prabhu\OneDrive\Desktop\Personal portfolio\styles.css */
-/* ... existing code */
-.project-card p {
-    flex-grow: 1; /* Pushes the link to the bottom */
-    margin-bottom: 20px;
-    font-size: 1rem;
-}
+# 3. Glowing Section Titles
+What it is: The main section titles ("Skills", "Projects", "Contact") now have a vibrant, animated glow effect.
+How it works: A text-shadow animation (@keyframes title-glow) creates a pulsating glow, making the section headers stand out and adding to the modern aesthetic.
 
-.project-card a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    align-self: flex-start; /* Aligns the link to the left */
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background-color: rgba(52, 152, 219, 0.1);
-    /* 3D Button Style */
-    box-shadow: 0 4px 0 var(--button-shadow-color);
-}
+# 4. Enhanced 3D Card & Item Hovers
+Project Cards: On hover, project cards now lift up and tilt slightly in 3D space (transform: translateY(-10px) rotateY(-5deg)), creating a more immersive browsing experience.
+Skill Items: On hover, skill items now lift, scale up, and tilt on their X-axis (transform: translateY(-8px) scale(1.05) rotateX(10deg)), giving them a dynamic, "popping" effect.
 
-.project-card a:hover {
-    color: var(--link-hover-color);
-    background-color: rgba(52, 152, 219, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 var(--button-shadow-color); /* Make shadow 'taller' on hover */
-    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
-}
+# Bug Fixes & Consistency Improvements
 
-.project-card a:active {
-    /* "Pressed" effect */
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 var(--button-shadow-color);
-}
+# 1. Corrected "About Me" Title Style
 
-.project-card a i {
-/* ... existing code */
-```
+Issue: The "About Me" section title was incorrectly inheriting the glowing effect meant for other section titles, which made it look out of place.
+Fix: The glow animation and bright text-shadow have been removed specifically for the "About Me" h2 element. It now has a simple, clean text shadow to ensure readability without the distracting glow.
 
-### Summary of Changes:
+# 2. Standardized "View Project" Button Hover
+Issue: The "View Project" buttons were not correctly displaying the 3D "lift" effect on hover, making them inconsistent with other 3D buttons on the site.
+Fix: The hover state for these buttons (.project-card a:hover) has been updated to include the correct box-shadow change, ensuring they lift and animate just like the navigation buttons.
 
-1.  **`.project-card a`**: I updated the `transition` property to include `transform` and `box-shadow` so the button's movement and shadow change will be animated smoothly.
-2.  **`.project-card a:hover`**: I added `box-shadow: 0 6px 0 var(--button-shadow-color);`. This increases the shadow's size when the button is hovered, creating a more convincing "lifted" effect that matches the behavior of your other 3D buttons.
-
-These adjustments will make the project buttons feel consistent with the rest of the interactive elements on your page.
+## This version (v1.2) successfully unifies the interactive elements and adds a layer of polish and engagement to your portfolio.
