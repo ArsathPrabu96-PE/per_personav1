@@ -1,0 +1,511 @@
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+    --card-bg-color: rgba(255, 255, 255, 0.9);
+    --header-bg-color: rgba(255, 255, 255, 0.85);
+    --footer-bg-color: var(--primary-color);
+    --footer-text-color: #ecf0f1;
+    --link-hover-color: #2980b9;
+    --overlay-bg-color: rgba(0, 0, 0, 0.5);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --text-shadow-color: rgba(0, 0, 0, 0.5);
+    --button-shadow-color: #1e2b37;
+
+    /* Rainbow colors for skills */
+    --skill-1: #ff6b6b;
+    --skill-2: #feca57;
+    --skill-3: #48dbfb;
+    --skill-4: #1dd1a1;
+    --skill-5: #ff9ff3;
+    --skill-6: #54a0ff;
+    --skill-text-color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    /* 3D Text Effect */
+    text-shadow: 1px 1px 3px var(--text-shadow-color);
+}
+
+section {
+    padding: 80px 20px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    /* Revert justify-content to center the content horizontally */
+    justify-content: center;
+    min-height: 100vh;
+    transition: background-color 1s ease, color 1s ease;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-bg-color);
+    z-index: 1;
+}
+
+/* The direct child div of a section will sit on top of the overlay */
+section > div {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    /* Revert text-align to center the content inside the div */
+    text-align: center;
+}
+
+h2 {
+    /* Revert text-align to center the section titles */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3.5rem; /* Increased font size for a grander look */
+    font-weight: 900; /* Bolder font */
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px var(--secondary-color); /* Glowing effect */
+    animation: title-glow 2s ease-in-out infinite alternate; /* Subtle glow animation */
+}
+
+/* Animation for the grand titles */
+@keyframes title-glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px var(--secondary-color);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px var(--link-hover-color);
+    }
+}
+
+/* Keyframe animation for the shake effect */
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    10% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+    20% { transform: translate(1px, 0px) rotate(0.5deg); }
+    30% { transform: translate(2px, 2px) rotate(0); }
+    40% { transform: translate(1px, -1px) rotate(0.5deg); }
+    50% { transform: translate(-1px, 2px) rotate(-0.5deg); }
+    60% { transform: translate(-2px, 1px) rotate(0); }
+    70% { transform: translate(2px, 1px) rotate(-0.5deg); }
+    80% { transform: translate(-1px, -1px) rotate(0.5deg); }
+    90% { transform: translate(1px, 1px) rotate(0); }
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--header-bg-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 70px;
+}
+
+nav h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white; /* Set text to white for contrast */
+    font-weight: bold;
+    padding: 10px 20px; /* Slightly larger buttons */
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* 3D Button Style */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Text shadow for depth */
+}
+
+/* Rainbow colors for nav buttons */
+nav ul li:nth-of-type(4n + 1) a { 
+    background-color: var(--skill-1); 
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--skill-1) 70%, black);
+}
+nav ul li:nth-of-type(4n + 2) a { 
+    background-color: var(--skill-2); 
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--skill-2) 70%, black);
+}
+nav ul li:nth-of-type(4n + 3) a { 
+    background-color: var(--skill-3); 
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--skill-3) 70%, black);
+}
+nav ul li:nth-of-type(4n + 4) a { 
+    background-color: var(--skill-4); 
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--skill-4) 70%, black);
+}
+
+
+/* Add specific hover rules for each button color to add glow */
+nav ul li:nth-of-type(4n + 1) a:hover {
+    box-shadow: 0 6px 0 color-mix(in srgb, var(--skill-1) 70%, black), 0 0 20px var(--skill-1);
+}
+nav ul li:nth-of-type(4n + 2) a:hover {
+    box-shadow: 0 6px 0 color-mix(in srgb, var(--skill-2) 70%, black), 0 0 20px var(--skill-2);
+}
+nav ul li:nth-of-type(4n + 3) a:hover {
+    box-shadow: 0 6px 0 color-mix(in srgb, var(--skill-3) 70%, black), 0 0 20px var(--skill-3);
+}
+nav ul li:nth-of-type(4n + 4) a:hover {
+    box-shadow: 0 6px 0 color-mix(in srgb, var(--skill-4) 70%, black), 0 0 20px var(--skill-4);
+}
+
+nav ul a:hover {
+    transform: translateY(-2px); /* Lift button on hover */
+    /* Keep the 3D shadow, but lift it, and add a glow effect */
+    box-shadow: 0 6px 0 color-mix(in srgb, currentColor 70%, black), 0 0 20px currentColor;
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+nav ul a:active {
+    /* "Pressed" effect - move button down to where the shadow was */
+    transform: translateY(4px);
+    box-shadow: 0 0 0 transparent; /* Remove shadow when pressed */
+}
+
+/* About Section */
+#about .about-content {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 800px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about .about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 var(--shadow-color);
+    animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+#about h2 {
+    color: white; /* Keep text white for readability */
+    animation: none; /* Remove the glow animation */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add simple shadow for readability instead of glow */
+}
+
+#about p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    text-align: center;
+    perspective: 1000px; /* Add 3D perspective to the container */
+}
+
+.skill-item {
+    color: var(--skill-text-color);
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none; /* Remove border for a cleaner look */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Assigning rainbow colors to skill items */
+.skill-item:nth-of-type(6n + 1) { background-color: var(--skill-1); box-shadow: 0 0 15px var(--skill-1); }
+.skill-item:nth-of-type(6n + 2) { background-color: var(--skill-2); box-shadow: 0 0 15px var(--skill-2); }
+.skill-item:nth-of-type(6n + 3) { background-color: var(--skill-3); box-shadow: 0 0 15px var(--skill-3); }
+.skill-item:nth-of-type(6n + 4) { background-color: var(--skill-4); box-shadow: 0 0 15px var(--skill-4); }
+.skill-item:nth-of-type(6n + 5) { background-color: var(--skill-5); box-shadow: 0 0 15px var(--skill-5); }
+.skill-item:nth-of-type(6n + 6) { background-color: var(--skill-6); box-shadow: 0 0 15px var(--skill-6); }
+
+
+.skill-item:hover {
+    transform: translateY(-8px) scale(1.05) rotateX(10deg); /* Add 3D rotation on hover */
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2), 0 0 25px currentColor; /* Enhance shadow for depth */
+    animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    text-align: left;
+    perspective: 1000px; /* Add 3D perspective to the container */
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1), 0 0 20px var(--secondary-color); /* Added glow effect */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) rotateY(-5deg); /* Add a subtle 3D tilt effect */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2), 0 0 35px var(--link-hover-color); /* Enhanced glow on hover */
+    animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.project-card p {
+    flex-grow: 1; /* Pushes the link to the bottom */
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    align-self: flex-start; /* Aligns the link to the left */
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: rgba(52, 152, 219, 0.1);
+    /* 3D Button Style */
+    box-shadow: 0 4px 0 var(--button-shadow-color);
+}
+
+.project-card a:hover {
+    color: var(--link-hover-color);
+    background-color: rgba(52, 152, 219, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--button-shadow-color); /* Make shadow 'taller' on hover */
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.project-card a:active {
+    /* "Pressed" effect */
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--button-shadow-color);
+}
+
+.project-card a i {
+    margin-right: 8px;
+}
+
+/* Contact Section */
+#contact form {
+    max-width: 600px;
+    /* Revert margin to center the form horizontally */
+    margin: 0 auto;
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#contact textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+#contact button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    /* 3D Button Style */
+    box-shadow: 0 4px 0 var(--button-shadow-color);
+}
+
+#contact button:hover {
+    background-color: var(--link-hover-color);
+    transform: translateY(-2px);
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+#contact button:active {
+    /* "Pressed" effect */
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--button-shadow-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Footer / Contact Section */
+footer#contact {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+footer h2 {
+    color: inherit; /* Inherits white color from footer */
+    margin-bottom: 20px;
+}
+
+footer p {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    color: var(--footer-text-color);
+    font-size: 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block; /* Needed for transform */
+    /* 3D Button Style */
+    box-shadow: 0 4px 0 var(--button-shadow-color);
+}
+
+.social-links a:hover {
+    transform: scale(1.2) translateY(-5px);
+    color: var(--secondary-color);
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.social-links a:active {
+    /* "Pressed" effect */
+    transform: translateY(2px) scale(1.2);
+    box-shadow: 0 2px 0 var(--button-shadow-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    nav h1 {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    section {
+        padding: 60px 20px;
+        min-height: auto; /* Allow sections to be smaller on mobile */
+        background-attachment: scroll; /* Parallax effect doesn't work well on mobile */
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
