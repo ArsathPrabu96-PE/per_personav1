@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Personal Portfolio - Version 1.2 Release Notes
 - This update focuses on enhancing the user experience with more dynamic, interactive, and visually appealing elements. Key improvements include the implementation of 3D effects, engaging animations, and consistency fixes across the site.
 
@@ -34,3 +35,6 @@ Issue: The "View Project" buttons were not correctly displaying the 3D "lift" ef
 Fix: The hover state for these buttons (.project-card a:hover) has been updated to include the correct box-shadow change, ensuring they lift and animate just like the navigation buttons.
 
 ## This version (v1.2) successfully unifies the interactive elements and adds a layer of polish and engagement to your portfolio.
+=======
+# Personal_porttfolio
+>>>>>>> f2a572ad066cdf5c70164d0c7aab631f60957f3e
